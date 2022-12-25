@@ -17,9 +17,10 @@
   "importOrder": [
     "styles/globals.scss",
     "^react",
-    "^next(/)?(.*)$",
+    "^next(/)",
     "<THIRD_PARTY_MODULES>",
     "^components(/)?(.*)$",
+    "^util(/)?(.*)$",
     "^data(/)?(.*)$",
     "^styles(/)?(.*)$",
     "^[./]"
