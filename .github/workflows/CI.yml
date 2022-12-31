@@ -33,3 +33,5 @@ jobs:
         run: yarn prettier
       - name: Build
         run: yarn build
+      - name: Cypress e2e
+        run: yarn e2e:headless
