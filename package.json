@@ -38,8 +38,11 @@
     "eslint": "8.46.0",
     "eslint-config-next": "^13.4.12",
     "eslint-plugin-react": "^7.33.1",
-    "prettier": "^3.0.1",
+    "prettier": "2.8.8",
     "start-server-and-test": "^2.0.0",
     "typescript": "5.1.6"
-  }
+  },
+  "plugins": [
+    "@trivago/prettier-plugin-sort-imports"
+  ]
 }
