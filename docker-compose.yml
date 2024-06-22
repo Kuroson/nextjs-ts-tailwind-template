@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  ui:
+    build:
+      target: dev
+      context: .
+    working_dir: /app
+    command: yarn run dev
+    volumes:
+      - ./pages:/app/pages:z
+      - ./public:/app/public:z
+      - ./components:/app/components:z
+      - ./styles:/app/styles:z
+    ports:
+      - "3000:3000"

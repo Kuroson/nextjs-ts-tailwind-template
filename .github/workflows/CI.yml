@@ -35,3 +35,9 @@ jobs:
         run: yarn build
       - name: Cypress e2e
         run: yarn e2e:headless
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: "Docker build"
+        run: docker build -t frontend .
