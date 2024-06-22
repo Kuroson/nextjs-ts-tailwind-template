@@ -63,5 +63,6 @@ jobs:
       - name: Changeset bump
         run: |
           yarn changeset version
+          git commit -m "chore: Update package [skip ci]"
           yarn changeset tag
           git push --follow-tags
