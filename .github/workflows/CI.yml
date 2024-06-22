@@ -56,6 +56,6 @@ jobs:
         run: yarn install --frozen-lockfile
       - name: Changeset bump
         run: |
-          pnpm changeset version
-          pnpm changeset tag
+          yarn changeset version
+          yarn changeset tag
           git push --follow-tags
