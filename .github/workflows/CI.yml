@@ -24,17 +24,20 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-          cache: "yarn"
+          cache: "pnpm"
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 9
       - name: Install dependencies
-        run: yarn install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
       - name: Lint
-        run: yarn lint
+        run: pnpm run lint
       - name: Prettier
-        run: yarn prettier
+        run: pnpm run prettier
       - name: Build
-        run: yarn build
+        run: pnpm run build
       - name: Cypress e2e
-        run: yarn e2e:headless
+        run: pnpm run e2e:headless
   docker:
     runs-on: ubuntu-latest
     steps:

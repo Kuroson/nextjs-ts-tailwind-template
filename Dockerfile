@@ -1,39 +1,49 @@
-FROM node:20-alpine as dev
+FROM node:20-alpine AS dev
 
 WORKDIR /app
 COPY ./ ./
 
-RUN yarn install --frozen-lockfile
+RUN corepack enable
+RUN corepack prepare pnpm@9 --activate
+RUN pnpm install --frozen-lockfile
 
-FROM node:20-alpine as builder
+FROM node:20-alpine AS builder
 
-ENV NODE_ENV production
+ENV NODE_ENV=production
 WORKDIR /app
 
 COPY --from=dev /app/node_modules node_modules
 COPY ./ ./
 
-RUN yarn run build
+RUN corepack enable
+RUN corepack prepare pnpm@9 --activate
+RUN pnpm run build
 
-FROM node:20-alpine as prod-deps
+FROM node:20-alpine AS prod-deps
 
-ENV NODE_ENV production
+ENV NODE_ENV=production
 WORKDIR /app
 
 COPY ./ ./
-RUN yarn install --frozen-lockfile --production
 
-FROM node:20-alpine as prod
+RUN corepack enable
+RUN corepack prepare pnpm@9 --activate
+RUN pnpm install --frozen-lockfile --prod
 
-ENV NODE_ENV production
+FROM node:20-alpine AS prod
+
+ENV NODE_ENV=production
 WORKDIR /app
+
+RUN corepack enable
+RUN corepack prepare pnpm@9 --activate
 
 COPY --from=builder /app/.next .next
 COPY --from=builder /app/package.json package.json
-COPY --from=builder /app/yarn.lock yarn.lock
+COPY --from=builder /app/pnpm-lock.yaml pnpm-lock.yaml
 COPY --from=prod-deps /app/node_modules node_modules
 
-ENV PORT 3000
+ENV PORT=3000
 EXPOSE 3000
 
-CMD ["yarn", "start"]
+CMD ["pnpm", "run", "start"]
