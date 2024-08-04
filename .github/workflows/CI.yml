@@ -37,7 +37,9 @@ jobs:
       - name: Build
         run: pnpm run build
       - name: Cypress e2e
-        run: pnpm run e2e:headless
+        run: |
+          pnpm cypress install --force
+          pnpm run e2e:headless
   docker:
     runs-on: ubuntu-latest
     steps:
