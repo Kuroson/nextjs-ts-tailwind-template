@@ -1,11 +1,11 @@
-FROM node:20-alpine as dev
+FROM node:20.16.0-alpine as dev
 
 WORKDIR /app
 COPY ./ ./
 
 RUN yarn install --frozen-lockfile
 
-FROM node:20-alpine as builder
+FROM node:20.16.0-alpine as builder
 
 ENV NODE_ENV production
 WORKDIR /app
@@ -15,7 +15,7 @@ COPY ./ ./
 
 RUN yarn run build
 
-FROM node:20-alpine as prod-deps
+FROM node:20.16.0-alpine as prod-deps
 
 ENV NODE_ENV production
 WORKDIR /app
@@ -23,7 +23,7 @@ WORKDIR /app
 COPY ./ ./
 RUN yarn install --frozen-lockfile --production
 
-FROM node:20-alpine as prod
+FROM node:20.16.0-alpine as prod
 
 ENV NODE_ENV production
 WORKDIR /app
