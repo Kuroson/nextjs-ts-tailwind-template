@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@next/bundle-analyzer':
-        specifier: ^14.2.13
-        version: 14.2.13
+        specifier: ^14.2.14
+        version: 14.2.14
       autoprefixer:
         specifier: ^10.4.14
         version: 10.4.14(postcss@8.4.47)
@@ -210,8 +210,8 @@ packages:
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
 
-  '@next/bundle-analyzer@14.2.13':
-    resolution: {integrity: sha512-CQOVKmfenD9HsG4AmyXG2ElMvtGKAT9TlS2JLgpL/EORi4WX+QMiQ8Ri6b+A7HRT+AiUGjsYnocIOET59i6Jfw==}
+  '@next/bundle-analyzer@14.2.14':
+    resolution: {integrity: sha512-n5DZtp3sdKidoBZhY50/BAiqkLBj8YUR2oqR3hiEuV8B8+fZ05x59nBJnb6kPTMpV5ACC7hEXNRrRnfqJ4oSkQ==}
 
   '@next/env@14.2.4':
     resolution: {integrity: sha512-3EtkY5VDkuV2+lNmKlbkibIJxcO4oIHEhBWne6PaAp+76J9KoSsGvNikp6ivzAT8dhhBMYrm6op2pS1ApG0Hzg==}
@@ -2569,7 +2569,7 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@next/bundle-analyzer@14.2.13':
+  '@next/bundle-analyzer@14.2.14':
     dependencies:
       webpack-bundle-analyzer: 4.10.1
     transitivePeerDependencies:
