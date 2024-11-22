@@ -1,4 +1,4 @@
-FROM node:20.16.0-alpine AS dev
+FROM node:20.18.1-alpine AS dev
 
 WORKDIR /app
 COPY ./ ./
@@ -7,7 +7,7 @@ RUN corepack enable
 RUN corepack prepare pnpm@9 --activate
 RUN pnpm install --frozen-lockfile
 
-FROM node:20.16.0-alpine AS builder
+FROM node:20.18.1-alpine AS builder
 
 ENV NODE_ENV=production
 WORKDIR /app
@@ -19,7 +19,7 @@ RUN corepack enable
 RUN corepack prepare pnpm@9 --activate
 RUN pnpm run build
 
-FROM node:20.16.0-alpine AS prod-deps
+FROM node:20.18.1-alpine AS prod-deps
 
 ENV NODE_ENV=production
 WORKDIR /app
@@ -30,7 +30,7 @@ RUN corepack enable
 RUN corepack prepare pnpm@9 --activate
 RUN pnpm install --frozen-lockfile --prod
 
-FROM node:20.16.0-alpine AS prod
+FROM node:20.18.1-alpine AS prod
 
 ENV NODE_ENV=production
 WORKDIR /app
